@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Caesar Cryptography
+{% endblock %}
+
+{% block form %}
+<form class='form' action='/caesar?tab={{mode}}' method='POST'>
+    <input name='message' type="text" placeholder='{{' Message' if mode=='encrypt' else 'Encrypted Message' }}'
+        required>
+    <input name='key' type="text" placeholder='Key' required>
+    <button type='submit'>{{'Encrypt' if mode == 'encrypt' else 'Decrypt'}}</button>
+</form>
+{% endblock %}
+
+{% block result %}
+{{result}}
+{% endblock %}

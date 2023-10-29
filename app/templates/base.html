@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptography online</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+    <div class='app'>
+        <nav class='nav'>
+            <h1 class='logo'>
+                <a href="/">Cryptography online</a>
+            </h1>
+            <ul class='algorithms'>
+                <li>
+                    <a href='/caesar'>Caesar</a>
+                </li>
+                <li>
+                    <a href='/vigenere'>Vigenere</a>
+                </li>
+            </ul>
+        </nav>
+
+        <section>
+            <h1 class='algorithm-title'>
+                {% block title %}
+                {% endblock %}
+            </h1>
+
+            {% include 'tab.html' %}
+
+            {% block form %}
+            {% endblock %}
+
+            <div class='result'>
+                <strong>Result:</strong>
+
+                {% block result %}
+                {% endblock %}
+            </div>
+        </section>
+    </div>
+
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+
+</html>
