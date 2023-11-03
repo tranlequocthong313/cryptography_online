@@ -1,7 +1,3 @@
-import sys
-
-sys.path.append('..')
-
 from algorithms.caesar import encrypt, decrypt
 
 
