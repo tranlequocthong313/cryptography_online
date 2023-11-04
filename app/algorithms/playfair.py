@@ -1,4 +1,14 @@
+def replace_duplicate(key):
+    existed_chars = []
+    for c in key:
+        if c not in existed_chars:
+            existed_chars.append(c)
+    return "".join(existed_chars)
+
+
 def generate_matrix(key):
+    key = key.upper().replace("J", "I")
+    key = replace_duplicate(key)
     key_chars = [char for char in key]
     key_chars = list(dict.fromkeys(key_chars))
     alphabet = [chr(ascii) for ascii in range(65, 91) if chr(ascii) != 'J']
@@ -86,3 +96,5 @@ def decrypt(encrypted_message, key):
     indexes = find_indexes(encrypted_message, matrix)
     shifted_indexes = shift_indexes(indexes, backward=True)
     return get_string(shifted_indexes, matrix)
+
+

@@ -33,6 +33,16 @@ def test_encryption():
             "key": "MONARCHY",
             "expected": "EXTLHRKS"
         },
+        {
+            "text": "TRUONGDAIHOCMO",
+            "key": "JUSTDOIT",
+            "expected": "DQIAWNUESFAEVF"
+        },
+        {
+            "text": "BALLOON",
+            "key": "KKKK",
+            "expected": "CBNVMPPO"
+        },
     ]
 
     for case in cases:
@@ -82,6 +92,16 @@ def test_decryption():
             "key": "MONARCHY",
             "expected": "IUSTDOIT"
         },
+        {
+            "text": "DQIAWNUESFAEVF",
+            "key": "JUSTDOIT",
+            "expected": "TRUONGDAIHOCMO",
+        },
+        {
+            "text": "CBNVMPPO",
+            "key": "KKKK",
+            "expected": "BALXLOON",
+        },
     ]
 
     for case in cases:
@@ -106,6 +126,14 @@ def test_generate_matrix():
                          ["E", "F", "G", "I", "K"],
                          ["L", "P", "Q", "S", "T"],
                          ["U", "V", "W", "X", "Z"]]
+        },
+        {
+            "key": "JUSTDOIT",
+            "expected": [["I", "U", "S", "T", "D"], 
+                         ["O", "A", "B", "C", "E"],
+                         ["F", "G", "H", "K", "L"],
+                         ["M", "N", "P", "Q", "R"],
+                         ["V", "W", "X", "Y", "Z"]]
         },
     ]
 
