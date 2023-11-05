@@ -70,7 +70,8 @@ def playfair_encrypt():
     elif mode == 'decrypt':
         result = playfair.decrypt(message, key)
 
-    return render_template('playfair.html', mode=get_mode(), result=result)
+    matrix= playfair.generate_matrix(key)
+    return render_template('playfair.html', mode=get_mode(), result=result, matrix=matrix)
 
 
 def get_mode():

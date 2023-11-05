@@ -161,3 +161,11 @@ body {
     border-radius: 5px;
     margin-top: 10px;
 }
+
+.playfair-matrix {
+    list-style: none;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+}

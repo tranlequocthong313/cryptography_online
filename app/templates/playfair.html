@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block title %}
 Playfair Cryptography
 {% endblock %}
@@ -11,6 +10,16 @@ Playfair Cryptography
     <input name='key' type="text" placeholder='Key' required>
     <button type='submit'>{{'Encrypt' if mode == 'encrypt' else 'Decrypt'}}</button>
 </form>
+
+<ul class='playfair-matrix'>
+    {% for r in matrix %}
+    <li>
+        {% for c in r %}
+        {{c}}
+        {% endfor %}
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}
 
 {% block result %}
