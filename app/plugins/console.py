@@ -53,16 +53,25 @@ def vigenere_handler(choice):
         print(f"Decrypted message: {vigenere.decrypt(message, key)}")
 
 
+def show_matrix(matrix):
+    for row in matrix:
+        print(' '.join(row))
+
+
 def playfair_handler(choice):
     if choice == "1":
         print("\nPlayfair Encryption")
         message = input("Enter the message: ")
         key = input("Enter the key: ")
+        print("Matrix:")
+        show_matrix(playfair.generate_matrix(key))
         print(f"Encrypted message: {playfair.encrypt(message, key)}")
     elif choice == "2":
         print("\nPlayfair Decryption")
         message = input("Enter the message: ")
         key = input("Enter the key: ")
+        print("Matrix:")
+        show_matrix(playfair.generate_matrix(key))
         print(f"Decrypted message: {playfair.decrypt(message, key)}")
 
 
