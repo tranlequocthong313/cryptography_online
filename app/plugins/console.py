@@ -1,11 +1,9 @@
-from algorithms import caesar
-from algorithms import vigenere
-from algorithms import playfair
+from algorithms import caesar, vigenere, playfair, affine
 
 
 def main_menu():
     print("\nMAIN MENU")
-    print("1. Caesar Cipher\n2. Vigenere Cipher\n3. Playfair Cipher\n4. Exit")
+    print("1. Caesar Cipher\n2. Vigenere Cipher\n3. Playfair Cipher\n4. Affine Cipher\n5. Exit")
     return input("Enter your choice: ")
 
 
@@ -75,6 +73,33 @@ def playfair_handler(choice):
         print(f"Decrypted message: {playfair.decrypt(message, key)}")
 
 
+def main_menu():
+    print("\nMAIN MENU")
+    print("1. Caesar Cipher\n2. Vigenere Cipher\n3. Playfair Cipher\n4. Affine Cipher\n5. Exit")
+    return input("Enter your choice: ")
+
+
+def affine_menu():
+    print("\nAffine Cipher Menu")
+    print("1. Encrypt\n2. Decrypt\n3. Return to main menu")
+    return input("Enter your choice: ")
+
+
+def affine_handler(choice):
+    if choice == "1":
+        print("\nAffine Encryption")
+        message = input("Enter the message: ")
+        a = int(input("Enter the value of a: "))
+        b = int(input("Enter the value of b: "))
+        print(f"Encrypted message: {affine.encrypt(message, (a, b))}")
+    elif choice == "2":
+        print("\nAffine Decryption")
+        message = input("Enter the message: ")
+        a = int(input("Enter the value of a: "))
+        b = int(input("Enter the value of b: "))
+        print(f"Decrypted message: {affine.decrypt(message, (a, b))}")
+
+
 def main():
     while True:
         choice = main_menu()
@@ -106,6 +131,15 @@ def main():
                 else:
                     print("Invalid choice. Please try again.")
         elif choice == "4":
+            while True:
+                affine_choice = affine_menu()
+                if affine_choice in ("1", "2"):
+                    affine_handler(affine_choice)
+                elif affine_choice == "3":
+                    break
+                else:
+                    print("Invalid choice. Please try again.")
+        elif choice == "5":
             print("Exiting the program.")
             break
         else:

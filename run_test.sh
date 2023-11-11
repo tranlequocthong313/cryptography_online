@@ -1,1 +1,1 @@
-export PYTHONPATH='/app' && pytest
+export PYTHONPATH='app' && pytest

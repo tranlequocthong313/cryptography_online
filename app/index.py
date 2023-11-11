@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect
 from app.algorithms import caesar
 from app.algorithms import vigenere
 from app.algorithms import playfair
+from app.algorithms import affine
 
 
 app = Flask(__name__)
@@ -72,6 +73,27 @@ def playfair_encrypt():
 
     matrix= playfair.generate_matrix(key)
     return render_template('playfair.html', mode=get_mode(), result=result, matrix=matrix)
+
+
+@app.route('/affine')
+def affine_page():
+    return render_template('affine.html', mode=get_mode())
+
+
+@app.post('/affine')
+def affine_encrypt():
+    mode = get_mode()
+
+    message = request.form['message']
+    a = request.form['key-a']
+    b = request.form['key-b']
+
+    if mode == 'encrypt':
+        result = affine.encrypt(message, [a,b])
+    elif mode == 'decrypt':
+        result = affine.decrypt(message, [a,b])
+
+    return render_template('affine.html', mode=get_mode(), result=result)
 
 
 def get_mode():
