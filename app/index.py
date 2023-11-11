@@ -93,7 +93,8 @@ def affine_encrypt():
     elif mode == 'decrypt':
         result = affine.decrypt(message, [a,b])
 
-    return render_template('affine.html', mode=get_mode(), result=result)
+    inverse = affine.modinv(a=int(a), m=26)
+    return render_template('affine.html', mode=get_mode(), result=result, inverse=inverse)
 
 
 def get_mode():

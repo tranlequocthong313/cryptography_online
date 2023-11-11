@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Caesar Cryptography
+Affine Cryptography
 {% endblock %}
 
 {% block form %}
@@ -10,6 +10,9 @@ Caesar Cryptography
         required>
     <input name='key-a' type="text" placeholder='Key a' required>
     <input name='key-b' type="text" placeholder='Key b' required>
+    {% if mode == 'decrypt' %}
+    <p class='inverse-affine'>a<sup>-1</sup> = {{inverse}}</p>
+    {% endif %}
     <button type='submit'>{{'Encrypt' if mode == 'encrypt' else 'Decrypt'}}</button>
 </form>
 {% endblock %}
